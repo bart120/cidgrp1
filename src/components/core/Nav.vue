@@ -1,7 +1,9 @@
 <template>
     <nav>
         <Menubar :model="items">
-            
+            <template #end>
+                <router-link to='/login'>Se connecter</router-link>
+            </template>
         </Menubar>
     </nav>
 </template>
@@ -23,8 +25,8 @@ export default {
                     label: 'Voitures',
                     items:[
                         {label: 'Ajouter', to:'/cars/add'},
-                        {label: 'Lister' , to:'/cars/list'},
-                        {label: 'Rechercher', to: '/cars/search'},
+                        {label: 'Lister' , to:{name: 'carlist'}},
+                        {label: 'Rechercher', to: '/cars/search'}
                     ]
                 }
             ]
