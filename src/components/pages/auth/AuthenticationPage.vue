@@ -8,13 +8,22 @@
 <script>
 export default {
     data(){
-        return {user:{login:'', password:''}};
+        return {user:{login:'', password:''}, valid: false};
+    },
+    computed:{
+        disa(){
+            return !this.valid;
+        }
     },
     methods:{
         submit(){
             //ev.preventDefault();
-            console.log(this.user.login);
-            console.log(this);
+            //console.log(this.user.login);
+            //console.log(this);
+        },
+        changeMail(status){
+            this.valid = (status === 'OK');
+
         }
     }
 }
@@ -25,13 +34,13 @@ export default {
     <h1>Connexion</h1>
     <form @submit.prevent="submit" novalidate>
         <div>
-            <InputCidMail v-model="user.login" label="Login" />
+            <InputCidMail v-model="user.login" label="Login" @status-change="changeMail" />
         </div>
         <div>
             <InputCid v-model="user.password" type="password" label="Mot de passe"/>
         </div>
         <div>
-            <Button type="submit">Se connecter</Button>
+            <Button type="submit" :disabled="disa" >Se connecter</Button>
         </div>
     </form>
 
