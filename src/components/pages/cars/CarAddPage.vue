@@ -2,9 +2,8 @@
     import Button from 'primevue/button';
     import InputCid from '../../core/input/InputCid.vue';    
     import Calendar from 'primevue/calendar';
-    import Dropdown from 'primevue/dropdown';
     
-    import { transformBind } from '@vue/compiler-core';
+    
     import CarService from '../../../services/CarService';
     import {brandMixin} from '../../../mixins/BrandMixin';
 </script>
@@ -24,7 +23,10 @@ export default {
             });
         }
     },
-    mixins:[brandMixin]
+    mixins:[brandMixin],
+    mounted(){
+        //console.log(this);
+    }
 }
 </script>
 

@@ -1,6 +1,5 @@
 <script setup>
     import Button from 'primevue/button';
-    import Dropdown from 'primevue/dropdown';
     
     import {brandMixin} from '../../../mixins/BrandMixin';
 </script>
