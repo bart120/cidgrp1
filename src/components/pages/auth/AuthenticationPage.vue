@@ -3,6 +3,9 @@
     import InputText from 'primevue/inputtext'
     import InputCid from '../../core/input/InputCid.vue';
     import InputCidMail from '../../core/input/InputCidMail.vue';
+    import {useUserStore} from '../../../store/userStore';
+
+    const {login} = useUserStore();
 </script>
 
 <script>
@@ -20,6 +23,8 @@ export default {
             //ev.preventDefault();
             //console.log(this.user.login);
             //console.log(this);
+            this.login(this.user.login, this.user.password);
+            this.$router.push({path: '/'});
         },
         changeMail(status){
             this.valid = (status === 'OK');

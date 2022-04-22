@@ -2,18 +2,46 @@
     <nav>
         <Menubar :model="items">
             <template #end>
-                <router-link to='/login'>Se connecter</router-link>
+                <div v-if="! isConnected">
+                    <router-link to='/login'>Se connecter</router-link>
+                </div>
+                <div v-else>
+                    Bonjour {{user?.name}}
+                    <Button type="button" @click="onLogout" >Se déconnecter</Button>
+                </div>
             </template>
         </Menubar>
+        
     </nav>
 </template>
 
 <script setup>
 import Menubar from 'primevue/menubar';
+import Button from 'primevue/button';
+import {useUserStore} from '../../store/userStore';
+import { storeToRefs } from 'pinia';
+
+const {isConnected, user} = storeToRefs(useUserStore());
+const {logout} = useUserStore();
 </script>
 
 <script>
+/*import { storeToRefs } from 'pinia';
+import Menubar from 'primevue/menubar';
+import {useUserStore} from '../../store/userStore';*/
+
 export default {
+    /*setup() {
+    
+        const userStore = useUserStore()
+        return { userStore }
+    },
+    components: {
+        Menubar
+    },*/
+    mounted(){
+        //console.log(this.user.isConnected);
+    },
     data(){
         return {
             items :[
@@ -31,6 +59,11 @@ export default {
                 }
             ]
         };
+    },
+    methods:{
+        onLogout(){
+            this.logout();
+        }
     }
 
 }

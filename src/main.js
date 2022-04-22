@@ -6,6 +6,7 @@ import App from './App.vue'
 import PriveVue from 'primevue/config'
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from './conf/routes';
+import { createPinia } from 'pinia'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,6 +15,7 @@ const router = createRouter({
 
 
 createApp(App)
+    .use(createPinia())
     .use(router)
     .use(PriveVue)
     .mount('#app');
