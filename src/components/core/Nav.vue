@@ -46,11 +46,11 @@ export default {
         return {
             items :[
                 {
-                   label:'Accueil',
+                   label: this.$t('menu.home'),
                    icon:'pi pi-fw pi-file',
                    to: '/'
                 },{
-                    label: 'Voitures',
+                    label: this.$t('menu.cars'),
                     items:[
                         {label: 'Ajouter', to:'/cars/add'},
                         {label: 'Lister' , to:{name: 'carlist'}},
