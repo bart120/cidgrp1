@@ -17,8 +17,8 @@
                     brandService.getBrands().then(brands =>{
                         data.map(car => car.brand = brands.find(e => e.id == car.brandID).name);
                         //console.log(data);
+                         this.cars = data;
                     });
-                    this.cars = data;
                     //console.log(this.cars);
                 }).catch(err => alert(err.message));*/
 

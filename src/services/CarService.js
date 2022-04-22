@@ -17,4 +17,12 @@ export default class CarService{
         //return axios.get(URL);
     }
 
+    insertCar(car){
+        //car.price = parseFloat(car.price);
+        car.price = +car.price;
+        return axios.post(URL, car).then(resp =>{
+            return Promise.resolve(resp.data);
+        });
+    }
+
 }
